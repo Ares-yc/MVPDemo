@@ -1,7 +1,9 @@
-package com.ares.areslibrary;
+package com.ares.areslibrary.sample;
 
 import android.os.Bundle;
+import android.view.View;
 
+import com.ares.areslibrary.R;
 import com.ares.areslibrary.mvp.view.BaseView;
 import com.ares.areslibrary.mvp.view.MVPFragment;
 
@@ -20,12 +22,17 @@ public class MainFragment extends MVPFragment<MainFragment,MainFragPresenter> im
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.fragment_main;
     }
 
     @Override
-    protected void initParams() {
-
+    protected void initParams(View rootView) {
+        rootView.findViewById(R.id.btn_click).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.show();
+            }
+        });
     }
 
     @Override

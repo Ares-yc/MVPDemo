@@ -24,7 +24,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(getLayoutId(),null);
-        initParams();
+        initParams(rootView);
         return rootView;
     }
 
@@ -46,7 +46,7 @@ public abstract class BaseFragment extends Fragment {
     /**
      * 初始化参数
      */
-    protected abstract void initParams();
+    protected abstract void initParams(View rootView);
 
     /**
      * 恢复参数

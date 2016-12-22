@@ -4,13 +4,11 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ares.areslibrary.MainActivity">
+    tools:context="com.ares.areslibrary.sample.MainActivity">
 
-    <Button
-        android:id="@+id/btn_click"
+    <FrameLayout
+        android:id="@+id/fl_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="7dp"
-        android:text="Click"/>
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

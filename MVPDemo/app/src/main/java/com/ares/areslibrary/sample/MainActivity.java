@@ -1,14 +1,11 @@
-package com.ares.areslibrary;
+package com.ares.areslibrary.sample;
 
-import android.view.View;
-import android.widget.Button;
-
+import com.ares.areslibrary.R;
 import com.ares.areslibrary.mvp.view.BaseView;
 import com.ares.areslibrary.mvp.view.MVPActivity;
 
 public class MainActivity extends MVPActivity<MainActivity,MainPresenter> implements BaseView ,MainContract.View{
 
-    Button click;
 
     @Override
     protected int getLayoutId() {
@@ -17,13 +14,11 @@ public class MainActivity extends MVPActivity<MainActivity,MainPresenter> implem
 
     @Override
     protected void initParams() {
-        click = (Button) findViewById(R.id.btn_click);
-        click.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                presenter.show();
-            }
-        });
+        MainFragment mainFragment = (MainFragment) getSupportFragmentManager().findFragmentById(R.id.fl_content);
+        if (mainFragment == null) {
+            mainFragment = MainFragment.newInstance(null);
+        }
+        addFragmentToActivity(getSupportFragmentManager(),R.id.fl_content,mainFragment);
     }
 
     @Override

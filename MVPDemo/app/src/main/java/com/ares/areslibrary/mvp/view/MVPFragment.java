@@ -10,13 +10,14 @@ import android.view.ViewGroup;
 import com.ares.areslibrary.mvp.presenter.BasePresenter;
 
 /**
- * MVP模式Fragment基类
+ * MVP模式Fragment 基类
  * Created by Ares on 2016/12/22/022.
  */
 
 public abstract class MVPFragment<V extends BaseView,P extends BasePresenter<V>> extends Fragment implements BaseView{
 
     protected P presenter;
+    protected View rootView;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -39,8 +40,8 @@ public abstract class MVPFragment<V extends BaseView,P extends BasePresenter<V>>
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(getLayoutId(),null);
-        initParams();
+        rootView = inflater.inflate(getLayoutId(),null);
+        initParams(rootView);
         return rootView;
     }
 
@@ -59,7 +60,7 @@ public abstract class MVPFragment<V extends BaseView,P extends BasePresenter<V>>
     /**
      * 初始化参数
      */
-    protected abstract void initParams();
+    protected abstract void initParams(View rootView);
 
     /**
      * 恢复参数
@@ -73,7 +74,19 @@ public abstract class MVPFragment<V extends BaseView,P extends BasePresenter<V>>
      */
     protected abstract P createPresenter();
 
+    /**
+     * 获取相应的Fragment对象
+     * @return
+     */
     public V getMvpView(){
         return (V) this;
+    }
+
+    /**
+     * 获取相应的Fragment的根布局
+     * @return Fragment的根布局
+     */
+    public View getRootView(){
+        return this.rootView;
     }
 }

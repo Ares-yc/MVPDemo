@@ -2,12 +2,16 @@ package com.ares.areslibrary.mvp.view;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import com.ares.areslibrary.base.BaseApplication;
 import com.ares.areslibrary.mvp.presenter.BasePresenter;
 
 /**
+ * MVP模式Activity 基类
  * Created by Ares on 2016/12/22/022.
  */
 
@@ -51,6 +55,19 @@ public abstract class MVPActivity<V extends BaseView,P extends BasePresenter<V>>
         super.onDestroy();
         BaseApplication.removeActivity(this);
         presenter.detachView(false);
+    }
+
+    public void addFragmentToActivity(FragmentManager fragmentManager, int contentId, Fragment fragment){
+        if (fragmentManager == null) {
+            return;
+        }
+        if (fragment == null) {
+            return;
+        }
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.add(contentId, fragment);
+        transaction.commit();
+
     }
 
 }

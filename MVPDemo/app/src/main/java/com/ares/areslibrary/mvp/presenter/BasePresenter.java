@@ -5,7 +5,7 @@ import com.ares.areslibrary.mvp.view.BaseView;
 import java.lang.ref.WeakReference;
 
 /**
- * Presenter 基类
+ * MVP模式Presenter 基类
  * Created by Ares on 2016/12/22/022.
  */
 

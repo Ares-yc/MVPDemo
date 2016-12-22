@@ -1,7 +1,8 @@
-package com.ares.areslibrary;
+package com.ares.areslibrary.sample;
 
 import android.widget.Button;
 
+import com.ares.areslibrary.R;
 import com.ares.areslibrary.mvp.presenter.BasePresenter;
 
 /**

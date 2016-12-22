@@ -1,4 +1,4 @@
-package com.ares.areslibrary;
+package com.ares.areslibrary.sample;
 
 /**
  * MainActivity 契约类
@@ -8,14 +8,10 @@ package com.ares.areslibrary;
 public interface MainContract {
 
     public interface View{
-
-
     }
 
     public interface Presenter{
-
         void show();
-
     }
 
 }
